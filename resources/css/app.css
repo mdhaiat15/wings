@@ -1,0 +1,58 @@
+@import '@fortawesome/fontawesome-free/css/fontawesome.min';
+@import '@fortawesome/fontawesome-free/css/solid.min';
+
+@import 'select2-tailwind.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    --app-white: #ffffff;
+    --app-primary: #5D63F1;
+    --app-accent: #e0e2fc;
+
+    --app-primary-hover: #2e36ed;
+
+    --app-gray-10: #dfe0ef; /** border */
+    --app-gray-20: #cbcbda; /** border input */
+
+    --app-text-primary: #0d0d19;
+    --app-text-secondary: #8f90b0;
+    --app-text-sidebar: #8082a5; /** sidebar */
+
+    --app-bg-0: #f7f7fb;
+    --app-bg-5: #ecedf5;
+    --app-bg-neutral-light: #ededed;
+
+    --app-success: #00C571;
+    --app-success-secondary: #dffff1;
+
+    --app-danger: #fa5252;
+    --app-danger-secondary: #fee7e7;
+
+    /* DARK */
+
+    --app-white-dark: #000000;
+    --app-primary-dark: #5D63F1;
+    --app-accent-dark: #e0e2fc;
+
+    --app-primary-hover-dark: #2e36ed;
+
+    --app-gray-10-dark: #242424; /** border */
+    --app-gray-20-dark: #383838; /** border input */
+
+    --app-text-primary-dark: #dedede;
+    --app-text-secondary-dark: #6b6b6b;
+    --app-text-sidebar-dark: #9e9e9e; /** sidebar */
+
+    --app-bg-0-dark: #121212;
+    --app-bg-5-dark: #1f1f1f;
+    --app-bg-neutral-light-dark: #434249;
+
+    --app-success-dark: #00C571;
+    --app-success-secondary-dark: #13ff9a;
+
+    --app-danger-dark: #fa5252;
+    --app-danger-secondary-dark: #fc9c9c;
+}
