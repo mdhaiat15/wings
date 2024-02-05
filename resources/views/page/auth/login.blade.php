@@ -26,16 +26,6 @@
                             class="block w-full px-[15px] py-[8px] text-[1rem] leading-[1.6] text-[var(--app-text-primary)] dark:text-[var(--app-text-primary-dark)] bg-[var(--app-white)] dark:bg-[var(--app-white-dark)] border border-solid border-[var(--app-gray-20)] dark:border-[var(--app-gray-20-dark)] rounded-[5px] shadow-[0_1px_2px_0px_rgba(0,0,0,0.05)]" />
                         <x-input-error :messages="$errors->get('password')" class="mt-2" />
                     </fieldset>
-                    <fieldset class="mb-[20px]">
-                        <label class="max-w block relative">
-                            <input name="remember" type="checkbox"
-                                class="leading-[1.15] bg-[var(--app-bg-0)] dark:bg-[var(--app-bg-0-dark)] w-[15px] h-[15px] border border-solid border-[var(--app-gray-20)] dark:border-[var(--app-gray-20-dark)] rounded-[3px] absolute top-[9px] left-[0px] focus:outline-none">
-                            {{-- <div
-                                class="block max-w relative py-[5px] pl-[25px] pr-[5px] text-[var(--app-text-primary)] dark:text-[var(--app-text-primary-dark)] rounded-[5px]">
-                                Keep me logged in.
-                            </div> --}}
-                        </label>
-                    </fieldset>
                     <fieldset>
                         <input type="submit" value="Log In"
                             class="font-medium text-center align-middle cursor-pointer border border-solid whitespace-nowrap transition-[background-color] duration-[150ms] ease-in-out shadow-[0_1px_2px_0px_rgba(0,0,0,0.05)] text-[var(--app-white)] dark:text-[var(--app-white)] bg-[var(--app-primary)] dark:bg-[var(--app-primary-dark)] border-[var(--app-primary)] dark:border-[var(--app-primary-dark)] hover:bg-[var(--app-primary-hover)] dark:hover:bg-[var(--app-primary-hover-dark)] hover:border-[var(--app-primary-hover)] dark:hover:border-[var(--app-primary-hover-dark)] px-[25px] py-[10px] text-[1.2rem] leading-[1.7] rounded-[6px] block w-full">
