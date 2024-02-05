@@ -30,10 +30,10 @@
                         <label class="max-w block relative">
                             <input name="remember" type="checkbox"
                                 class="leading-[1.15] bg-[var(--app-bg-0)] dark:bg-[var(--app-bg-0-dark)] w-[15px] h-[15px] border border-solid border-[var(--app-gray-20)] dark:border-[var(--app-gray-20-dark)] rounded-[3px] absolute top-[9px] left-[0px] focus:outline-none">
-                            <div
+                            {{-- <div
                                 class="block max-w relative py-[5px] pl-[25px] pr-[5px] text-[var(--app-text-primary)] dark:text-[var(--app-text-primary-dark)] rounded-[5px]">
                                 Keep me logged in.
-                            </div>
+                            </div> --}}
                         </label>
                     </fieldset>
                     <fieldset>

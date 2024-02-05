@@ -3,8 +3,6 @@
 namespace App\Repositories\Master;
 
 use App\Helpers\CustomHelper;
-use App\Models\Master\Party;
-use App\Models\Master\Product;
 use App\Models\Master\ProductUpload;
 use App\Models\Order\Transaction;
 use App\Models\Order\TransactionDetail;
@@ -33,7 +31,7 @@ class TransactionRepository
     {
         // search
         if ($request->has('searchKey') && !empty($request->searchValue)) {
-            if (in_array($request->searchKey, ['id', 'doc_date', 'name', 'code', 'transaksi_date'])) {
+            if (in_array($request->searchKey, ['id', 'transaksi_date'])) {
                 $records = $records->where($request->searchKey, 'LIKE', '%' . $request->searchValue . '%');
             }
         }

@@ -3,6 +3,7 @@
 namespace App\Models\Order;
 
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -26,6 +27,15 @@ class Transaction extends Model
     {
         if (!empty($this->doc_number)) {
             return $this->doc_code . '-' . $this->doc_number;
+        } else {
+            return '';
+        }
+    }
+
+    public function getDateLabelAttribute()
+    {
+        if (!empty($this->transaksi_date)) {
+            return Carbon::parse($this->transaksi_date)->translatedFormat('d F Y');
         } else {
             return '';
         }

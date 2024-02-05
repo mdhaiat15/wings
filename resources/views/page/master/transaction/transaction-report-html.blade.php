@@ -67,14 +67,13 @@
                                 <tr>
                                     <td class="text-center">{{ $item->document_label ?? '-' }}</td>
                                     <td class="text-center">{{ $item->user_label ?? '-' }}</td>
-                                    <td class="text-center">{{ $item->total_label ?? '-' }}</td>
-                                    <td class="text-center">{{ $item->transaksi_date ?? '-' }}</td>
+                                    <td class="text-center">{{ 'Rp. ' . $item->total_label ?? '-' }}</td>
+                                    <td class="text-center">{{ $item->date_label ?? '-' }}</td>
                                     @if ($item->details->isEmpty())
                                         <td class="text-center">{{ '' }}</td>
                                     @else
                                         <td class="text-center">
                                             @foreach ($item->details as $detail)
-                                                {{-- @dd($detail) --}}
                                                 <div>
                                                     {{ $detail->product?->name . ' X ' ?? '' }}{{ $detail?->quantity }}
                                                 </div>
@@ -88,9 +87,6 @@
             </div>
         </div>
         <div class="row">
-            {{-- <div class="col-auto">
-                {{ $paginate->withQueryString()->links() }}
-            </div> --}}
             @if ($paginate->total() > 0)
                 <div class="col-auto">
                     {{ __('Total') . ': ' . $paginate->total() }}

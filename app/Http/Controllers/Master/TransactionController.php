@@ -196,7 +196,7 @@ class TransactionController extends Controller
             // 'link' => route(''),
         ];
 
-        $secondaryTitle = 'All Product';
+        $secondaryTitle = 'All Transaction';
 
         $secondaryAction = [
             // 'text' => 'Print',
@@ -269,11 +269,11 @@ class TransactionController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'name' => 'required',
-            'code' => 'required',
-            'price' => 'required',
-            'currency' => 'required',
-            'upload' => 'required|mimes:png,jpg,jpeg,webp',
+            // 'name' => 'required',
+            // 'code' => 'required',
+            // 'price' => 'required',
+            // 'currency' => 'required',
+            // 'upload' => 'required|mimes:png,jpg,jpeg,webp',
         ]);
 
         $data = TransactionRepository::store($request);
@@ -378,10 +378,10 @@ class TransactionController extends Controller
     public function update(Request $request, string $id)
     {
         $this->validate($request, [
-            'name' => 'required',
-            'code' => 'required',
-            'price' => 'required',
-            'currency' => 'required',
+            // 'name' => 'required',
+            // 'code' => 'required',
+            // 'price' => 'required',
+            // 'currency' => 'required',
         ]);
 
         $data = TransactionRepository::update($request, $id);

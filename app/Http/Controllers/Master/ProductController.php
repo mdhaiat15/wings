@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Master;
 use App\Helpers\CustomHelper;
 use App\Http\Controllers\Controller;
 use App\Models\Master\ProductUpload;
+use App\Models\Order\Transaction;
+use App\Models\Order\TransactionDetail;
 use App\Repositories\Master\ProductRepository;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -320,29 +322,50 @@ class ProductController extends Controller
 
         $secondaryTitle = "Product ($id)";
 
-        $secondaryAction = [
-            [
-                'action' => 'save',
-                'text' => 'Save',
-                'link' => route('product.update', [self::$urlParam => $id]),
-            ],
-            [
-                'action' => 'delete',
-                'text' => 'Delete',
-                'link' => route('product.destroy', [self::$urlParam => $id]),
-                'confirm' => 'Apakah yakin',
-            ],
-            [
-                'action' => 'action',
-                'text' => 'Action',
-                'lists' => $actionArray,
-            ],
-            [
-                'action' => 'link',
-                'text' => 'Back',
-                'link' => route('product.index', $filterRequest),
-            ],
-        ];
+        if (TransactionDetail::where('product_id', $id)->get()->count() > 0) {
+
+            $secondaryAction = [
+                [
+                    'action' => 'save',
+                    'text' => 'Save',
+                    'link' => route('product.update', [self::$urlParam => $id]),
+                ],
+                [
+                    'action' => 'action',
+                    'text' => 'Action',
+                    'lists' => $actionArray,
+                ],
+                [
+                    'action' => 'link',
+                    'text' => 'Back',
+                    'link' => route('product.index', $filterRequest),
+                ],
+            ];
+        } else {
+            $secondaryAction = [
+                [
+                    'action' => 'save',
+                    'text' => 'Save',
+                    'link' => route('product.update', [self::$urlParam => $id]),
+                ],
+                [
+                    'action' => 'delete',
+                    'text' => 'Delete',
+                    'link' => route('product.destroy', [self::$urlParam => $id]),
+                    'confirm' => 'Apakah yakin',
+                ],
+                [
+                    'action' => 'action',
+                    'text' => 'Action',
+                    'lists' => $actionArray,
+                ],
+                [
+                    'action' => 'link',
+                    'text' => 'Back',
+                    'link' => route('product.index', $filterRequest),
+                ],
+            ];
+        }
 
         $tableKey = self::getMetaFieldSection();
         $formName = self::$formName;

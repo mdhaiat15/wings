@@ -31,7 +31,7 @@
                         </div>
                     </form>
 
-                    <form action="{{ route($routeName) }}" method="POST">
+                    <form action="{{ route($routeName) }}" method="GET">
                         @csrf
 
                         {{-- panel heading --}}
