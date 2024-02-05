@@ -18,7 +18,7 @@
                     {{-- information --}}
                     @include('components.alert-notification')
 
-                    @if (!empty($data))
+                    @if (!empty($data) && $data->count() > 0)
                         <div class="sticky top-0 left-0 right-0 z-30 dark:bg-[var(--app-white-dark)]">
 
                             {{-- panel heading --}}
@@ -121,7 +121,7 @@
                         </div>
                     @else
                         <div class="flex flex-col justify-center items-center max-w-sm mx-auto my-8">
-                            <p>Harap Masukkan Produk Terlebih Dahulu!</p>
+                            <p>Harap Membuat Produk Terlebih Dahulu!</p>
                         </div>
                     @endif
 
