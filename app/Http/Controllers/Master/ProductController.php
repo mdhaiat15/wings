@@ -214,8 +214,6 @@ class ProductController extends Controller
         $hideTitle = true;
         $filterRequest = CustomHelper::getRawQueryString($request);
 
-        // dd(config('zcustom.api_file_url'));
-
         $variableToView = ['breadCrumbList', 'title', 'secondaryTitle', 'action', 'secondaryAction', 'sidebars', 'tableKeyList', 'data', 'dataFilter', 'routeName', 'routeEdit', 'overrideRouteUrlParam', 'overrideKeyId', 'arrayLookup', 'hideTitle', 'filterRequest', 'formName'];
         return view('page.master.product.index')->with(compact($variableToView));
     }
@@ -376,7 +374,6 @@ class ProductController extends Controller
 
         $arrayAttachment['upload'] = ProductUpload::where('product_id', $data->id)->select(['file_path', 'id'])->get();
 
-        // dd($arrayAttachment);
         $variableToView = ['breadCrumbList', 'secondaryTitle', 'secondaryAction', 'tableKey', 'formName', 'arrayLookup', 'data', 'arrayAttachment'];
         return view('page.master.product.editor')->with(compact($variableToView));
     }

@@ -128,11 +128,11 @@ class TransactionController extends Controller
                         'dbfield' => 'transaction_id',
                         'required-placeholder' => 'true',
                     ],
-                    'product_id' => [
+                    'product_label' => [
                         'title' => __('Products'),
                         'type' => 'text',
                         'required' => 'true',
-                        'dbfield' => 'product_id',
+                        'dbfield' => 'product_label',
                     ],
                     'quantity' => [
                         'title' => __('Quantity'),

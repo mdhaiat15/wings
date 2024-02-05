@@ -11,7 +11,7 @@
                     <fieldset class="mb-[20px]">
                         <div class="mb-[5px]">
                             <label
-                                class="mb-[10px] block text-[var(--app-text-primary)] dark:text-[var(--app-text-primary-dark)] font-medium max-w-full">Username</label>
+                                class="mb-[10px] block text-[var(--app-text-primary)] dark:text-[var(--app-text-primary-dark)] font-medium max-w-full">Email</label>
                         </div>
                         <input type="text" name="email"
                             class="block w-full px-[15px] py-[8px] text-[1rem] leading-[1.6] text-[var(--app-text-primary)] dark:text-[var(--app-text-primary-dark)] bg-[var(--app-white)] dark:bg-[var(--app-white-dark)] border border-solid border-[var(--app-gray-20)] dark:border-[var(--app-gray-20-dark)] rounded-[5px] shadow-[0_1px_2px_0px_rgba(0,0,0,0.05)]" />

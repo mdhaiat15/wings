@@ -56,9 +56,6 @@ class TransactionRepository
 
     protected static function sortRow($sortBy, $orderBy, $records)
     {
-        // if ($sortBy == 'pack_type_label') {
-        //     $records->orderBy('status', 'asc');
-        // }
 
         $records = $records->orderBy($sortBy, $orderBy);
 
@@ -110,9 +107,6 @@ class TransactionRepository
 
         try {
             $arrayLookUp = [];
-
-            // $arrayLookUp['source_id'] = Party::select('id as key', 'name as value')->pluck('value', 'key');
-            // $arrayLookUp['destination_id'] = Party::select('id as key', 'name as value')->pluck('value', 'key');
 
             return [
                 'status' => 200,
@@ -203,7 +197,7 @@ class TransactionRepository
     public static function update(Request $request, $id)
     {
         $userId = Auth::user()->id;
-        // dd($request->all());
+
         try {
 
             $transaction = DB::transaction(function () use ($request, $userId, $id) {

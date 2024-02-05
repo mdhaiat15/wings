@@ -14,4 +14,13 @@ class TransactionDetail extends Model
     {
         return $this->belongsTo(Product::class);
     }
+
+    public function getProductLabelAttribute()
+    {
+        if (!empty($this->product)) {
+            return $this->product->name;
+        } else {
+            return '';
+        }
+    }
 }

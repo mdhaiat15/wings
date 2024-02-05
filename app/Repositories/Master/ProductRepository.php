@@ -3,7 +3,6 @@
 namespace App\Repositories\Master;
 
 use App\Helpers\CustomHelper;
-use App\Models\Master\Party;
 use App\Models\Master\Product;
 use App\Models\Master\ProductUpload;
 use Illuminate\Http\Request;
@@ -97,9 +96,6 @@ class ProductRepository
         try {
             $arrayLookUp = [];
 
-            // $arrayLookUp['source_id'] = Party::select('id as key', 'name as value')->pluck('value', 'key');
-            // $arrayLookUp['destination_id'] = Party::select('id as key', 'name as value')->pluck('value', 'key');
-
             return [
                 'status' => 200,
                 'data' => [
@@ -190,7 +186,7 @@ class ProductRepository
     public static function update(Request $request, $id)
     {
         $userId = Auth::user()->id;
-        // dd($request->all());
+
         try {
 
             $transaction = DB::transaction(function () use ($request, $userId, $id) {

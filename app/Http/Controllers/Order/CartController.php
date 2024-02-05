@@ -149,7 +149,6 @@ class CartController extends Controller
 
     public function checkOut(Request $request)
     {
-        // dd($request->data);
         $userId = Auth::user()->id;
         $now = Carbon::now();
 
