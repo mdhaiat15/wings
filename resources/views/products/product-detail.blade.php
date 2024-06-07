@@ -48,7 +48,7 @@
                         <div
                             class="flex flex-col items-center justify-center py-4 mt-10 space-y-4 sm:flex-row sm:space-y-0">
 
-                            <button type="button"
+                            <button type="button" id="add-cart-button" data-product-id="{{ $product->id }}" data-quantity="1"
                                 class="inline-flex items-center justify-center px-12 py-3 text-base font-bold text-center text-white transition-all duration-200 ease-in-out bg-blue-600 border-2 border-transparent rounded-md bg-none focus:shadow hover:bg-gray-800">
                                 Add to cart
                             </button>
@@ -58,4 +58,40 @@
             </div>
         </div>
     </div>
+    <script>
+        $(document).ready(function() {
+            $(document).on('click', '#add-cart-button', function() {
+                let productId = $(this).data('product-id');
+                let quantity = 1;
+                let token = $('meta[name="csrf-token"]').attr('content');
+
+                $.ajax({
+                    url: '{{ route('add-to-cart') }}',
+                    type: 'POST',
+                    data: {
+                        product_id: productId,
+                        quantity: quantity,
+                        _token: token
+                    },
+                    success: function(response) {
+                        Swal.fire({
+                            icon: 'success',
+                            title: response.message || 'Product added to cart successfully',
+                            showConfirmButton: false,
+                            timer: 3000
+                        });
+                    },
+                    error: function(xhr, status, error) {
+                        Swal.fire({
+                            icon: 'error',
+                            title: 'Something went wrong!',
+                            text: 'Failed to add product to cart',
+                            showConfirmButton: false,
+                            timer: 3000
+                        });
+                    }
+                });
+            });
+        });
+    </script>
 </x-app-layout>
