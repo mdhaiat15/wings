@@ -15,9 +15,9 @@ npm run dev -> terminal 2
 
 ```
 Feature
-Login with Username
-Display Product
-Menggunakan PHP Laravel 11, ajax, jquery, tailwindCSS, Boostrap
-Report Penjualan Page
-Cart Page
+- Login with Username
+- Display Product
+- Menggunakan PHP Laravel 11, ajax, jquery, tailwindCSS, Boostrap
+- Report Penjualan Page
+- Cart Page
 ```
