@@ -1,0 +1,1 @@
+<img src="{{ asset('img/WINGS.png') }}" alt="" class="w-20">
