@@ -58,16 +58,13 @@ class CartController extends Controller
 
     public function updateCart(Request $request, $id)
     {
-        // Validasi request
         $request->validate([
             'cart_id' => 'required|exists:carts,id',
             'quantity' => 'required|integer|min:1',
         ]);
 
-        // Ambil keranjang belanja yang akan diperbarui
         $cart = Cart::find($id);
 
-        // Perbarui jumlah barang dalam keranjang belanja
         $cart->quantity = $request->quantity;
         $cart->save();
 
@@ -80,7 +77,6 @@ class CartController extends Controller
     public function clearCart(Request $request)
 {
     try {
-        // Menghapus semua item di keranjang belanja untuk user yang sesuai
         Cart::where('user_id', $request->user_id)->delete();
         
         return response()->json([

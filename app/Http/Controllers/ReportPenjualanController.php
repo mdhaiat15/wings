@@ -22,16 +22,16 @@ class ReportPenjualanController extends Controller
             return DataTables::of($data)
                     ->addIndexColumn()            
                     ->addColumn('user_label', function ($row) {
-                        return $row->user->name; // or any attribute you want to use as label
+                        return $row->user->name; 
                     })
                     ->addColumn('document_label', function ($row) {
-                        return $row->document_code .' - '. $row->document_number; // or any attribute you want to use as label
+                        return $row->document_code .' - '. $row->document_number; 
                     })
                     ->addColumn('total_label', function ($row) {
-                        return 'Rp. '.number_format($row->total, 0, ',', '.'); // or any attribute you want to use as label
+                        return 'Rp. '.number_format($row->total, 0, ',', '.'); 
                     })
                     ->addColumn('date_label', function ($row) {
-                        return $row->date; // or any attribute you want to use as label
+                        return $row->date; 
                     })
                     ->addColumn('item_label', function ($row) {
                         $productNames = $row->transactionDetails->map(function ($detail) {

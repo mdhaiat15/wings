@@ -48,9 +48,12 @@
                                     <div class="flex items-center justify-between w-full">
                                         <p class="text-base font-black leading-none text-gray-800">
                                             {{ $item->product->product_name }}</p>
-                                        <input type="number" name="quantity" class="quantity-input" min="1"
-                                            max="9999" value="{{ $item->quantity }}"
-                                            data-cart-id="{{ $item->id }}" />
+                                            <div class="flex gap-4">
+                                                <input type="number" name="quantity" class="quantity-input" min="1"
+                                                    max="9999" value="{{ $item->quantity }}"
+                                                    data-cart-id="{{ $item->id }}" />
+                                                <p class="uppercase">{{ $item->product->unit }}</p>
+                                            </div>
                                     </div>
                                     <p class="text-xs leading-3 text-gray-600 pt-2">Dimension:
                                         {{ $item->product->dimension }}</p>
@@ -110,7 +113,6 @@
     </div>
     <script>
         $(document).ready(function() {
-            // Menghapus item dari keranjang belanja
             $(document).on('click', '.remove-cart', function() {
                 let id = $(this).data('cart-id');
                 let token = $('meta[name="csrf-token"]').attr('content');
@@ -127,7 +129,6 @@
 
                         console.log('test');
 
-                        //fetch to delete data
                         $.ajax({
 
                             url: `/remove-cart/${id}`,
@@ -191,8 +192,6 @@
                 let total = "{{ $totalPayment }}";
                 let cart = {!! json_encode($cart) !!};
 
-                // Data yang akan dikirim
-                // console.log(cart);
                 let data = {
                     _token: token,
                     user_id: user,
@@ -201,13 +200,11 @@
                     document_code: 'TRX',
                 };
 
-                // Mengirim permintaan AJAX
                 $.ajax({
-                    url: '{{ route('transaction') }}', // Ganti dengan URL yang sesuai
+                    url: '{{ route('transaction') }}', 
                     type: 'POST',
                     data: data,
                     success: function(response) {
-                        // Proses respon jika transaksi berhasil
                         console.log(response);
                         Swal.fire({
                             icon: 'success',
@@ -218,7 +215,7 @@
                         });
 
                         $.ajax({
-                            url: '{{ route('clear-cart') }}', // Ganti dengan URL untuk menghapus keranjang
+                            url: '{{ route('clear-cart') }}', 
                             type: 'POST',
                             data: {
                                 _token: token,
@@ -234,7 +231,7 @@
                         });
                     },
                     error: function(error) {
-                        // Proses respon jika terjadi kesalahan
+                        
                         console.log(error.message);
                         console.error('Error:', error.message);
                         Swal.fire({
